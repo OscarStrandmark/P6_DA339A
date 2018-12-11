@@ -14,7 +14,7 @@ public class Array7 {
 
 	public Array7(Array7 array7) {
 		array = array7.toIntArray();
-		//jhjkgjk
+		
 	}
 
 	public void setElement(int index, int value) {
