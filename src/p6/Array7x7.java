@@ -61,7 +61,7 @@ public class Array7x7 {
 	}
 	
 	public void setArray(Array7x7 array7x7) {
-		//TODO
+		System.out.print("hej");
 	}
 	
 	public void setArray(int[][] array) {
