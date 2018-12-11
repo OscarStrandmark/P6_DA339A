@@ -65,6 +65,7 @@ public class Array7x7 {
 		
 	}
 	
+	
 	public void setArray(int[][] array) {
 		//TODO
 	}
