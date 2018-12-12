@@ -1,5 +1,10 @@
 package moment_2;
 
-public class Array7x7Viewer {
+import javax.swing.*;
 
+public class Array7x7Viewer extends JPanel{
+
+	public Array7x7Viewer() {
+		// TODO Auto-generated constructor stub
+	}
 }
