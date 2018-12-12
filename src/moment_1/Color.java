@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package p6;
+package moment_1;
 
 /**
  * The Color class defines methods for creating and converting color ints.

@@ -1,4 +1,4 @@
-package p6;
+package moment_1;
 
 import java.util.Random;
 import java.util.Timer;

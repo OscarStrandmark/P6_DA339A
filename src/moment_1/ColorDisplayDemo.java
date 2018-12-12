@@ -1,4 +1,4 @@
-package p6;
+package moment_1;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

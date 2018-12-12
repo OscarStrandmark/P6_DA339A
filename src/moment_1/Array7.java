@@ -1,4 +1,4 @@
-package p6;
+package moment_1;
 
 public class Array7 {
 
