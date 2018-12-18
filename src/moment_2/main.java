@@ -8,6 +8,11 @@ public class main {
 		inputView.setVisible(true);
 		inputView.setEnabled(true);
 		inputView.pack();
+		
+		Array7x7Viewer viewerView = new Array7x7Viewer();
+		viewerView.setVisible(true);
+		viewerView.setEnabled(true);
+		//viewerView.pack();
 		}
 
 }
