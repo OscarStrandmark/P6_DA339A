@@ -12,10 +12,12 @@ public class Array7x7Viewer extends JFrame {
 	private JLabel[][] labelMatrix = new JLabel[7][7];
 	private JLabel[] labelWest = new JLabel[7];
 	private JLabel[] labelSouth = new JLabel[7];
+	
 	private JPanel centerPanel = new JPanel();
 	private JPanel westPanel = new JPanel(new GridLayout(8,1));
 	private JPanel southPanel = new JPanel(new GridLayout(1,8));
 	private JPanel northPanel = new JPanel();
+	
 	private Array7x7 array7x7 = new Array7x7();
 	private JLabel col = new JLabel("Column");
 	private JLabel row = new JLabel("Row");
@@ -28,13 +30,15 @@ public class Array7x7Viewer extends JFrame {
 		initWest(labelWest);
 		initSouth(labelSouth);
 		JPanel panelMid = new JPanel(new GridLayout(7, 7));
-		this.setSize(400, 400);
+		setSize(400, 400);
 		this.setVisible(true);
 		centerPanel.setLayout(new GridLayout(7, 7));
 		this.setLayout(new BorderLayout());
 		westPanel.setPreferredSize(new Dimension(50,20));
 		southPanel.setPreferredSize(new Dimension(20,40));
 		northPanel.add(title);
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
 
@@ -96,7 +100,7 @@ public class Array7x7Viewer extends JFrame {
 	public void initMatrix(JLabel[][] matrix) {            // Kallas en gång, finns som kommentar i konstruktorn om den passar bättre där
 		for (int i = 0; i < labelMatrix.length; i++) {
 			for (int j = 0; j < labelMatrix[i].length; j++) {
-				labelMatrix[i][j] = new JLabel("0");  
+				labelMatrix[i][j] = new JLabel("0",SwingConstants.CENTER);  
 				labelMatrix[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
 				labelMatrix[i][j].setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 				centerPanel.add(labelMatrix[i][j]);
@@ -106,14 +110,14 @@ public class Array7x7Viewer extends JFrame {
 	
 	public void initWest(JLabel[] label) {       // Kallas en gång, finns som kommentar i konstruktorn om den passar bättre där
 		for (int i = 0; i < label.length; i++) {
-			label[i] = new JLabel("0");
+			label[i] = new JLabel("0",SwingConstants.CENTER);
 			label[i].setBorder(BorderFactory.createLineBorder(Color.GRAY));
 			westPanel.add(labelWest[i]);
 		}
 	}
 	public void initSouth(JLabel[] label) {         // Kallas en gång, finns som kommentar i konstruktorn om den passar bättre där
 		for (int i = 0; i < label.length; i++) {
-			label[i] = new JLabel("0");
+			label[i] = new JLabel("0",SwingConstants.CENTER);
 			label[i].setBorder(BorderFactory.createLineBorder(Color.GRAY));
 			southPanel.add(labelSouth[i]);
 		}
@@ -157,21 +161,6 @@ public class Array7x7Viewer extends JFrame {
 				labelMatrix[i][j].setText("" + intArray[i][j]);
 			}
 			
-		}
-		
-	}
-	
-	
-	public static void main(String[] args) {
-
-//		Array7x7Input inputView = new Array7x7Input();
-//		inputView.setVisible(true);
-//		inputView.setEnabled(true);
-//		inputView.pack();
-		
-		Array7x7Viewer viewerView = new Array7x7Viewer();
-		viewerView.setVisible(true);
-		viewerView.setEnabled(true);
-		//viewerView.pack();
+		}	
 	}
 }

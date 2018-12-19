@@ -12,7 +12,6 @@ public class main {
 		Array7x7Viewer viewerView = new Array7x7Viewer();
 		viewerView.setVisible(true);
 		viewerView.setEnabled(true);
-		//viewerView.pack();
 		}
 
 }
