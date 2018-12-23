@@ -18,7 +18,6 @@ public class Array7x7Viewer extends JFrame {
 	private JPanel southPanel = new JPanel(new GridLayout(1,8));
 	private JPanel northPanel = new JPanel();
 	
-	private Array7x7 array7x7 = new Array7x7();
 	private JLabel col = new JLabel("Column");
 	private JLabel row = new JLabel("Row");
 	private JLabel title = new JLabel("Array7x7");
@@ -39,60 +38,12 @@ public class Array7x7Viewer extends JFrame {
 		northPanel.add(title);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		
-
-//		for (int i = 0; i < labelMatrix.length; i++) {              vet ej om detta ska vara inne i konstruktorn eller egna metoder 
-//			for (int j = 0; j < labelMatrix[i].length; j++) {
-//				JLabel temp = new JLabel("0");
-//				temp.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-//				labelMatrix[i][j] = temp;
-//				matrixPanel.add(temp);
-//			}
-//		}
-//
-//		for (int i = 0; i < labelWest.length; i++) {
-//			JLabel temp = new JLabel("0");
-//			temp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-//			labelWest[i] = temp;
-//			westPanel.add(temp);
-//		}
-//
-//		for (int i = 0; i < labelSouth.length; i++) {
-//			JLabel temp = new JLabel("0");
-//			temp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-//			labelSouth[i] = temp;
-//			southPanel.add(temp);
-//		}
 
 		add(centerPanel, BorderLayout.CENTER);
 		add(westPanel, BorderLayout.WEST);
 		add(southPanel, BorderLayout.SOUTH);
 		add(northPanel, BorderLayout.NORTH);
-		
-		
-		/*
-		 * Test av metoderna nedanför, stryk för tom array
-		 */
-		
-//		int array[][] = new int[7][7];                     //  Test av setArray7x7
-//		for(int i = 0; i < array.length; i++) {
-//			for(int j = 0; j < array[i].length;j++) {
-//				array[i][j] = i+j;
-//			}
-//		}
-//		Array7x7 array7x7 = new Array7x7(array);
-//		setArray7x7(array7x7);
-		
-		int array[] = new int[7];               
-		for(int i = 0; i<array.length;i++) {
-			array[i] = i;
-		}
-		Array7 array7 = new Array7(array);
-//		setRow(array7);
-//		setCol(array7);
-		setRowInArray7x7(2,array7);
-		setColInArray7x7(2,array7);
+
 
 	}
 	
@@ -125,6 +76,7 @@ public class Array7x7Viewer extends JFrame {
 	}
 	
 	public void setRow(Array7 array) { // Kolumnen längst ner
+		System.out.println("SETROW");
 		int intArray[] = array.toIntArray();
 		for(int i = 0; i< labelSouth.length; i++) {
 			labelSouth[i].setText("" + intArray[i]);
@@ -133,6 +85,7 @@ public class Array7x7Viewer extends JFrame {
 
 	
 	public void setCol(Array7 array) {      // Kolumnen till vänster
+		System.out.println("SETCOL");
 		int intArray[] = array.toIntArray();
 		for(int i = 0; i< labelSouth.length; i++) {
 			labelWest[i].setText("" + intArray[i]);
