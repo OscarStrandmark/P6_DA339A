@@ -137,10 +137,6 @@ public class Array7x7Input extends JFrame {
 
 				if (isNumeric(temp) ) {
 					int col = Integer.parseInt(temp);
-					if (col > 7 || col < 1) {
-						JOptionPane.showMessageDialog(null, "Värde på kollumn är fel! 1-7 endast");
-						break;
-					}
 					controller.readCol(col);
 				} else {
 					JOptionPane.showMessageDialog(null, "Ange endast siffror!");
