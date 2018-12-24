@@ -131,74 +131,86 @@ public class Array7x7Input extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource().equals(btn_ReadCol)) {
-				System.out.println("readcol");
-				String temp = JTFNorth.getText();
+			String colTest = JTFNorth.getText();
+			String rowTest = JTFSouth.getText();
 
-				if (isNumeric(temp) ) {
-					int col = Integer.parseInt(temp);
-					controller.readCol(col);
-				} else {
-					JOptionPane.showMessageDialog(null, "Ange endast siffror!");
-				}
-			}
+			if (!(isNumeric(colTest) || isNumeric(rowTest))) {
+				JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+			} else {
 
-			if (e.getSource().equals(btn_WriteCol)) {
-				System.out.println("writecol");
-				String temp = JTFNorth.getText();
+				if (e.getSource().equals(btn_ReadCol)) {
+					System.out.println("readcol");
+					String temp = JTFNorth.getText();
 
-				if (isNumeric(temp)) {
-					int col = Integer.parseInt(temp);
-					int[] arr = new int[7];
-					for (int i = 0; i < arr.length; i++) {
-						if (isNumeric(eastArray[i].getText())) {
-							arr[i] = Integer.parseInt(eastArray[i].getText());
-							controller.writeCol(col, new Array7(arr));
-						} else {
-							JOptionPane.showMessageDialog(null, "Ange endast siffror!");
-						}
+					if (isNumeric(temp)) {
+						int col = Integer.parseInt(temp);
+						controller.readCol(col);
+					} else {
+						JOptionPane.showMessageDialog(null, "Ange endast siffror!");
 					}
-				} else {
-					JOptionPane.showMessageDialog(null, "Ange endast siffror!");
 				}
-			}
 
-			if (e.getSource().equals(btn_ReadRow)) {
-				System.out.println("readrow");
-				String temp = JTFSouth.getText();
+				if (e.getSource().equals(btn_WriteCol)) {
+					System.out.println("writecol");
+					String temp = JTFNorth.getText();
 
-				if (isNumeric(temp)) {
-					int row = Integer.parseInt(temp);
-					controller.readRow(row);
-				} else {
-					JOptionPane.showMessageDialog(null, "Ange endast siffror!");
-				}
-			}
-
-			if (e.getSource().equals(btn_WriteRow)) {
-				System.out.println("writerow");
-				String temp = JTFSouth.getText();
-
-				if (isNumeric(temp)) {
-					int row = Integer.parseInt(temp);
-					int[] arr = new int[7];
-					for (int i = 0; i < arr.length; i++) {
-						if (isNumeric(southArray[i].getText())) {
-							arr[i] = Integer.parseInt(southArray[i].getText());
-							controller.writeRow(row, new Array7(arr));
-						} else {
-							JOptionPane.showMessageDialog(null, "Ange endast siffror!");
-							System.out.println("break");
-							break;
+					if (isNumeric(temp)) {
+						int col = Integer.parseInt(temp);
+						int[] arr = new int[7];
+						for (int i = 0; i < arr.length; i++) {
+							if (isNumeric(eastArray[i].getText())) {
+								arr[i] = Integer.parseInt(eastArray[i].getText());
+								controller.writeCol(col, new Array7(arr));
+							} else {
+								JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+								System.out.println("break");
+								break;
+							}
 						}
+					} else {
+						JOptionPane.showMessageDialog(null, "Ange endast siffror!");
 					}
-				} else {
-					System.out.println(666);
-					JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+				}
+
+				if (e.getSource().equals(btn_ReadRow)) {
+					System.out.println("readrow");
+					String temp = JTFSouth.getText();
+
+					if (isNumeric(temp)) {
+						int row = Integer.parseInt(temp);
+						controller.readRow(row);
+					} else {
+						JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+
+					}
+				}
+
+				if (e.getSource().equals(btn_WriteRow)) {
+					System.out.println("writerow");
+					String temp = JTFSouth.getText();
+
+					if (isNumeric(temp)) {
+						int row = Integer.parseInt(temp);
+						int[] arr = new int[7];
+						for (int i = 0; i < arr.length; i++) {
+							if (isNumeric(southArray[i].getText())) {
+								arr[i] = Integer.parseInt(southArray[i].getText());
+								controller.writeRow(row, new Array7(arr));
+							} else {
+								JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+								System.out.println("break");
+								break;
+							}
+						}
+					} else {
+						System.out.println(666);
+						JOptionPane.showMessageDialog(null, "Ange endast siffror!");
+					}
 				}
 			}
 		}
 
+		@SuppressWarnings("unused")
 		private boolean isNumeric(String str) {
 			try {
 				double d = Double.parseDouble(str);
@@ -207,5 +219,6 @@ public class Array7x7Input extends JFrame {
 			}
 			return true;
 		}
+
 	}
 }
