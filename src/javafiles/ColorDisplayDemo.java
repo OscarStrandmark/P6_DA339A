@@ -1,4 +1,4 @@
-package p6;
+package javafiles;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

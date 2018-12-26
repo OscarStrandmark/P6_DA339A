@@ -1,4 +1,4 @@
-package p6;
+package javafiles;
 
 import java.util.Random;
 import java.util.Timer;
