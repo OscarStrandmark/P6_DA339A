@@ -93,10 +93,10 @@ public class Test2UI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == shiftRght) {
-				
+				controller.shiftRght();
 			}
 			else if(e.getSource() == shiftLft) {
-				
+				controller.shiftLft();
 			}
 			
 		}

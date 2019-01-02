@@ -22,13 +22,13 @@ public class Controller {
 		ui.updateInterface(array);
 	}
 	
-	public void updateTest2UI(Array7x7 array) {
-		for(int i = 0; i < )
-	}
-	
 	public void shiftRght() {
 		rightColumn = currentArray.shiftRight(leftColumn);
-		
-		
+		ui.updateInterface(currentArray.toIntArray());
+	}
+	
+	public void shiftLft() {
+		leftColumn = currentArray.shiftRight(rightColumn);
+		ui.updateInterface(currentArray.toIntArray());
 	}
 }
