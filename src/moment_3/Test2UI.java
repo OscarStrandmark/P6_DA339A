@@ -15,7 +15,7 @@ public class Test2UI extends JFrame {
 	private JTextField[] textFieldColumnRght = new JTextField[7];	
 	private JButton shiftRght = new JButton("Shift Right");
 	private JButton shiftLft = new JButton("Shift Left");
-	//private Array7x7 matrix;
+	
 	
 	private JPanel centerPanel = new JPanel();
 	private JPanel westPanel = new JPanel();

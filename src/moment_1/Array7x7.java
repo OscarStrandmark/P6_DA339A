@@ -131,9 +131,9 @@ public class Array7x7 {
 		}
 		Array7 out = new Array7(outArray); //Raden längst till höger som flyttas ut.
 		
-		for (int row = array.length; row >= 0; row--) { //Flyttar allt 1 steg till höger
-			for (int col = array[0].length-1; col >= 0; col--) {
-				array[row][col+1] = array[row][col];
+		for (int row = 0; row < array.length; row++) { //Flyttar allt 1 steg till höger
+			for (int col = array[0].length-1; col >  0; col--) {
+				array[row][col] = array[row][col-1];
 			}
 		}
 		
