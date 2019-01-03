@@ -88,12 +88,12 @@ public class Controller implements ActionListener, DocumentListener {
 		if( e.getSource() == ui.getShiftLeftBtn()) {
 			leftColumn = currentArray.shiftLeft(rightColumn);
 			ui.updateInterface(currentArray.toIntArray());
-			//ui.resetTextFieldColumns();
+			ui.resetTextFieldColumns();
 		}
 		else {
 			rightColumn = currentArray.shiftRight(leftColumn);
 			ui.updateInterface(currentArray.toIntArray());
-			//ui.resetTextFieldColumns();
+			ui.resetTextFieldColumns();
 		}
 	}
 }
