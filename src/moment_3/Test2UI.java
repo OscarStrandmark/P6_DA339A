@@ -1,14 +1,9 @@
 package moment_3;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class Test2UI extends JFrame {
-
-	private Controller controller;
 	
 	private JLabel[][] labelMatrix = new JLabel[7][7];
 	private JTextField[] textFieldColumnLft = new JTextField[7];
@@ -16,17 +11,12 @@ public class Test2UI extends JFrame {
 	private JButton shiftRght = new JButton("Shift Right");
 	private JButton shiftLft = new JButton("Shift Left");
 	
-	
 	private JPanel centerPanel = new JPanel();
 	private JPanel westPanel = new JPanel();
 	private JPanel eastPanel = new JPanel();
 	private JPanel southPanel = new JPanel();
 	
-	
-	public Test2UI(Controller controller) {
-		this.controller = controller;
-		controller.setUI(this);
-		
+	public Test2UI() {
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		
@@ -42,18 +32,13 @@ public class Test2UI extends JFrame {
 		
 		initInterface();
 		
-		shiftRght.addActionListener(new Test2UIListener());
-		shiftLft.addActionListener(new Test2UIListener());
-		
+		setPreferredSize(new Dimension(600, 400));
+		pack();
+		setVisible(true);
 
 	}
 	
-	public Test2UI(Controller controller, int[][] array) {
-		this(controller);
-		
-		controller.updateCurrentArray(array);
-	}
-	
+	// Lägger till knappar, Rutor , Skrivkolumner
 	private void initInterface() {
 		for (int i = 0; i < labelMatrix.length; i++) {
 			for ( int j = 0; j < labelMatrix[i].length; j++) {
@@ -66,6 +51,10 @@ public class Test2UI extends JFrame {
 		for(int i = 0; i < textFieldColumnLft.length; i++) {
 			textFieldColumnLft[i] = new JTextField("0");
 			textFieldColumnRght[i] = new JTextField("0");
+			
+			textFieldColumnLft[i].getDocument().putProperty("columnArray", textFieldColumnLft);
+			textFieldColumnRght[i].getDocument().putProperty("columnArray", textFieldColumnRght);
+
 			
 			textFieldColumnLft[i].setPreferredSize(new Dimension(50,0));
 			textFieldColumnRght[i].setPreferredSize(new Dimension(50,0));
@@ -80,7 +69,15 @@ public class Test2UI extends JFrame {
 		southPanel.add(shiftRght);
 		
 	}
+	//Återställer kolumner längst ut till värdet "0"
+	public void resetTextFieldColumns() {
+		for ( int i = 0; i < textFieldColumnLft.length; i++) {
+			textFieldColumnLft[i].setText("0");
+			textFieldColumnRght[i].setText("0");
+		}
+	}
 	
+	//uppdaterar interfacet, körs när användaren trycker på en knapp
 	public void updateInterface(int[][] array) {
 		for(int i = 0; i < labelMatrix.length; i++) {
 			for(int j = 0; j < labelMatrix[i].length; j++) {
@@ -89,17 +86,20 @@ public class Test2UI extends JFrame {
 		}
 	}
 	
-	private class Test2UIListener implements ActionListener{
-
-		public void actionPerformed(ActionEvent e) {
-			if(e.getSource() == shiftRght) {
-				controller.shiftRght();
-			}
-			else if(e.getSource() == shiftLft) {
-				controller.shiftLft();
-			}
-			
-		}
-		
+	// Till actionListeners i Controller
+	public JButton getShiftLeftBtn() {
+		return shiftLft;
+	}
+	
+	public JButton getShiftRightBtn() {
+		return shiftRght;
+	}
+	
+	public JTextField[] getLeftTxtFldCol() {
+		return textFieldColumnLft;
+	}
+	
+	public JTextField[] getRightTxtFldCol() {
+		return textFieldColumnRght;
 	}
 }
