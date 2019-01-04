@@ -70,7 +70,9 @@ public class Test2UI extends JFrame {
 		
 	}
 	//Återställer kolumner längst ut till värdet "0"
-	public void resetTextFieldColumns() {
+	// är privat då den används i updateLftTxtFldCol etc. 
+	// för att nollställa kolumnerna innan de uppdateras
+	private void resetTextFieldColumns() {
 		for ( int i = 0; i < textFieldColumnLft.length; i++) {
 			textFieldColumnLft[i].setText("0");
 			textFieldColumnRght[i].setText("0");
@@ -83,6 +85,20 @@ public class Test2UI extends JFrame {
 			for(int j = 0; j < labelMatrix[i].length; j++) {
 				labelMatrix[i][j].setText(Integer.toString(array[i][j]));
 			}
+		}
+	}
+	//Uppdaterar kolumn i kanten
+	public void updateLftTxtFldCol(int[] array) {
+		resetTextFieldColumns();
+		for(int i = 0; i < textFieldColumnLft.length; i++) {
+			textFieldColumnLft[i].setText(Integer.toString(array[i]));
+		}
+	}
+	
+	public void updateRghtTxtFldCol(int[] array) {
+		resetTextFieldColumns();
+		for(int i = 0; i < textFieldColumnRght.length; i++) {
+			textFieldColumnRght[i].setText(Integer.toString(array[i]));
 		}
 	}
 	
