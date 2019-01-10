@@ -32,7 +32,7 @@ public class Array7x7Viewer extends JFrame {
 
 	public Array7x7Viewer() {
 		northPanel.add(col, BorderLayout.WEST);
-		//col.setHorizontalAlignment(LEFT);
+		
 		
 		southPanel.add(row);
 		initMatrix(labelMatrix);
