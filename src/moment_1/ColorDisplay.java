@@ -30,7 +30,7 @@ public class ColorDisplay extends JComponent {
 	}
 	
 	public ColorDisplay(int verticalPages, int horizontalpages, int background, int grid) {
-		this(verticalPages, horizontalpages, background, grid, 2, 40);
+		this(verticalPages, horizontalpages, background, grid, 6, 40);
 	}
 	
 	public ColorDisplay(int verticalPages, int horizontalpages, int background, int grid, int gridStroke, int sideSize) {
