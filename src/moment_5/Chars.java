@@ -87,13 +87,13 @@ public class Chars {
 		case 'Z' : res = new Array7x7(charZ); 
 		break;
 
-		case '√Ö' : res = new Array7x7(char√Ö); 
+		case '≈' : res = new Array7x7(char≈); 
 		break;
 
-		case '√Ñ' : res = new Array7x7(char√Ñ); 
+		case 'ƒ' : res = new Array7x7(charƒ); 
 		break;
 
-		case '√ñ' : res = new Array7x7(char√ñ); 
+		case '÷' : res = new Array7x7(char÷); 
 		break;
 		
 		case 'a' : res = new Array7x7(charSmallA); 
@@ -174,13 +174,13 @@ public class Chars {
 		case 'z' : res = new Array7x7(charSmallZ); 
 		break;
 
-		case '√•' : res = new Array7x7(charSmall√Ö); 
+		case 'Â' : res = new Array7x7(charSmall≈); 
 		break;
 
-		case '√§' : res = new Array7x7(charSmall√Ñ); 
+		case '‰' : res = new Array7x7(charSmallƒ); 
 		break;
 
-		case '√∂' : res = new Array7x7(charSmall√ñ); 
+		case 'ˆ' : res = new Array7x7(charSmall÷); 
 		break;
 
 		case '1' : res = new Array7x7(char1); 
@@ -536,7 +536,7 @@ public class Chars {
 			{0, 1, 1, 1, 1, 1, 0}
 	};
 
-	public static int[][] char√Ö = {
+	public static int[][] char≈ = {
 			{0, 0, 0, 1, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -546,7 +546,7 @@ public class Chars {
 			{0, 1, 0, 0, 0, 1, 0}
 	};
 
-	public static int[][] char√Ñ = {
+	public static int[][] charƒ = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -556,7 +556,7 @@ public class Chars {
 			{0, 1, 0, 0, 0, 1, 0}
 	};
 
-	public static int[][] char√ñ = {
+	public static int[][] char÷ = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -826,7 +826,7 @@ public class Chars {
 			{0, 0, 1, 1, 1, 1, 0}
 	};
 	
-	public static int[][] charSmall√Ö = {
+	public static int[][] charSmall≈ = {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 1, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
@@ -837,7 +837,7 @@ public class Chars {
 	};
 	
 	
-	public static int[][] charSmall√Ñ = {
+	public static int[][] charSmallƒ = {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
@@ -847,7 +847,7 @@ public class Chars {
 			{0, 0, 1, 1, 1, 1, 0}
 	};
 	
-	public static int[][] charSmall√ñ = {
+	public static int[][] charSmall÷ = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
