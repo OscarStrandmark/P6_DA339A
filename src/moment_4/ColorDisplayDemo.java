@@ -13,6 +13,7 @@ public class ColorDisplayDemo extends JPanel {
 	private ColorDisplay display;
 	private JButton btnR = new JButton("R");
 	private JButton btnA = new JButton("A");
+	private JButton a7x = new JButton("a7x");
 	private JButton btnRandomColors = new JButton("Slumpa");
 	private JButton btnTimer = new JButton("Timer");
 	private JButton btnFadeOut = new JButton("Genomskinlig");
@@ -31,7 +32,8 @@ public class ColorDisplayDemo extends JPanel {
 	}
 
 	private JPanel buttonPanel() {
-		JPanel panel = new JPanel(new GridLayout(1,5));
+		JPanel panel = new JPanel(new GridLayout(1,6));
+		panel.add(a7x);
 		panel.add(btnR);
 		panel.add(btnA);
 		panel.add(btnRandomColors);
@@ -69,6 +71,7 @@ public class ColorDisplayDemo extends JPanel {
 				controller.useTimer();
 			} else if(e.getSource()==btnFadeOut) {
 				controller.fadeOut();
+			} else if(e.getSource()==a7x) {
 			}
 		}		
 	}
