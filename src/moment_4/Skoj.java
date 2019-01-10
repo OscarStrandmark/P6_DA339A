@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
+//
 public class Skoj extends JFrame {
 
 	private Characters chr;

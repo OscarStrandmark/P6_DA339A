@@ -1,7 +1,7 @@
 package moment_4;
 
 public class Skoj2 {
-
+//
 	public static void main(String[] args) {
 		Array7x7 a = new Array7x7();
 		
