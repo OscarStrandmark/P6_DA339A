@@ -7,6 +7,7 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+
 public class Controller {
 	private Timer timer;
 	private Random random = new Random();
@@ -49,6 +50,12 @@ public class Controller {
 		show(charR);
 	}
 	
+	public void show7x7(Array7x7 a7) {
+		int[][] show = a7.toIntArray();
+		show(show);
+		
+	}
+	
 
 	public void showRandom() {
 		int red, green, blue;
@@ -68,6 +75,23 @@ public class Controller {
 		demo.enableButtons(false);
 		timer.schedule(new RandomColors(), 500, 500);
 		
+	}
+	
+	public static  moment_4.Array7x7 toColors(Array7x7 a7x) {
+		Array7x7 newArray = a7x; 
+		for (int row = 0; row < 7; row++) {
+			for (int col = 0; col < 7; col++) {
+				if(a7x.getElement(row, col) == 0) {
+					newArray.setElement(row, col, Color.WHITE);
+				}
+				else {
+					newArray.setElement(row, col, Color.BLACK);
+				}
+			}
+
+		}
+		
+		return newArray;
 	}
 	
 	public void fadeOut() {
@@ -118,6 +142,8 @@ public class Controller {
 			}
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -129,6 +155,11 @@ public class Controller {
 				frame.add(demo);
 				frame.pack();
 				frame.setVisible(true);
+
+				
+			
+				
+
 			}
 		});
 	}
