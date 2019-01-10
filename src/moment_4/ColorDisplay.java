@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -182,19 +183,97 @@ public class ColorDisplay extends JComponent {
 		}catch(InterruptedException e) {}
 	}
 	
-	public static void main(String[] args) {
-//		int[][] arr = {{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED},
-//				{Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED}};
-//		ColorDisplay d = new ColorDisplay(4,2,Color.WHITE,Color.BLACK,1,10);
-//		d.setDisplay(arr,2,1); // arr har r√∂d-v√§rde i samtliga element
-//		d.updateDisplay();
-//
-//		JOptionPane.showMessageDialog(null,d);
-		JOptionPane.showMessageDialog(null, new ColorDisplay(Color.RED,Color.WHITE));
+	public static  Array7x7 toColors(Array7x7 a7x) {   // Metod som s‰tter f‰rg beroende pÂ etta eller nolla K
+		Array7x7 newArray = a7x; 
+		for (int row = 0; row < 7; row++) {
+			for (int col = 0; col < 7; col++) {
+				if(a7x.getElement(row, col) == 0) {
+					newArray.setElement(row, col, Color.WHITE);
+				}
+				else {
+					newArray.setElement(row, col, Color.BLACK);
+				}
+			}
+		}
+		return newArray;
+		}
+	
+	public static Array7 toColors(Array7 a7) {
+		for(int i=0; i < 7; i++) {
+			a7.setElement(i, Color.WHITE);
+		}
+		return a7;
+	}
+	
+	//en metod som ger slumpm‰ssiga int v‰rden till arrayen
+//	public static Array7x7 randomColor(Array7x7 b7x) {
+//		Random r = new Random();
+//		//int maxValue = 0xFFFFFFFF;
+//		int myValue = r.nextInt(0xFFFFFFFF+1);
+//		
+//		
+//		Array7x7 newArray = b7x;
+//		for (int row = 0; row < 7; row++) {
+//			for(int col = 0; col < 7; col++) {
+//				newArray.setElement(row, col, myValue); //random f‰rg?
+//			}
+//		}
+//		return newArray;
+//	}
+
+	public static void main(String[] args) {  // ƒndrat i mainmetoden K
+
+//		JOptionPane.showMessageDialog(null, new ColorDisplay(Color.RED, Color.WHITE));
+
+		Characters chars = new Characters();
+		Array7x7 a7x = new Array7x7();
+		Array7 a7 = new Array7();
+		
+		a7x.setArray(chars.getChar('Z'));
+		
+		toColors(a7x);
+		toColors(a7);
+
+
+
+
+
+//		int[][] arr = { { Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED },
+//				{ Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED } };
+		
+	//	Array7x7 b7x = new Array7x7();
+	//	b7x.setArray(arr);
+		ColorDisplay h = new ColorDisplay(1,2,Color.WHITE, Color.BLACK,2 ,20);
+		h.setDisplay(a7x.toIntArray());
+		h.updateDisplay();
+		JOptionPane.showMessageDialog(null, h);
+		
+//		a7x.shiftLeft(a7);
+//		h.setDisplay(a7x.toIntArray());
+//		h.updateDisplay();
+//		a7x.shiftLeft(a7);
+////		JOptionPane.showMessageDialog(null, h);
+//		h.setDisplay(a7x.toIntArray());
+//		h.updateDisplay();
+//		a7x.shiftLeft(a7);
+////		JOptionPane.showMessageDialog(null, h);
+//		h.setDisplay(a7x.toIntArray());
+//		h.updateDisplay();
+//		a7x.shiftLeft(a7);
+////		JOptionPane.showMessageDialog(null, h);
+//		JOptionPane.showMessageDialog(null, h);
+//		
+		
+		
+		//ColorDisplay d = new ColorDisplay(3, 3, Color.WHITE, Color.BLACK, 1, 18);   // Ursprungliga v‰rden (4,2, Color.WHITE, Color.BLACK,1,10)
+		//d.setDisplay(a7x.toIntArray(), 1, 1); // arr har r√∂d-v√§rde i samtliga element     // (2,1)
+		//d.updateDisplay();
+		//JOptionPane.showMessageDialog(null, d);
+		System.out.print("" + Color.WHITE);
 	}
 }
