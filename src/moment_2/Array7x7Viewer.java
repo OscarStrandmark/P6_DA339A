@@ -1,8 +1,16 @@
 package moment_2;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import moment_1.Array7;
 import moment_1.Array7x7;
@@ -14,16 +22,18 @@ public class Array7x7Viewer extends JFrame {
 	private JLabel[] labelSouth = new JLabel[7];
 	
 	private JPanel centerPanel = new JPanel();
-	private JPanel westPanel = new JPanel(new GridLayout(8,1));
+	private JPanel westPanel = new JPanel(new GridLayout(7,1));
 	private JPanel southPanel = new JPanel(new GridLayout(1,8));
-	private JPanel northPanel = new JPanel();
+	private JPanel northPanel = new JPanel(new BorderLayout());
 	
 	private JLabel col = new JLabel("Column");
-	private JLabel row = new JLabel("Row");
-	private JLabel title = new JLabel("Array7x7");
+	private JLabel row = new JLabel("Row",SwingConstants.CENTER);
+	private JLabel title = new JLabel("Array7x7",SwingConstants.CENTER);
 
 	public Array7x7Viewer() {
-		westPanel.add(col);
+		northPanel.add(col, BorderLayout.WEST);
+		//col.setHorizontalAlignment(LEFT);
+		
 		southPanel.add(row);
 		initMatrix(labelMatrix);
 		initWest(labelWest);
@@ -35,7 +45,7 @@ public class Array7x7Viewer extends JFrame {
 		this.setLayout(new BorderLayout());
 		westPanel.setPreferredSize(new Dimension(50,20));
 		southPanel.setPreferredSize(new Dimension(20,40));
-		northPanel.add(title);
+		northPanel.add(title, BorderLayout.CENTER);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
