@@ -87,13 +87,13 @@ public class Chars {
 		case 'Z' : res = new Array7x7(charZ); 
 		break;
 
-		case 'Å' : res = new Array7x7(charÅ); 
+		case 'Ã…' : res = new Array7x7(charÃ…); 
 		break;
 
-		case 'Ä' : res = new Array7x7(charÄ); 
+		case 'Ã„' : res = new Array7x7(charÃ„); 
 		break;
 
-		case 'Ö' : res = new Array7x7(charÖ); 
+		case 'Ã–' : res = new Array7x7(charÃ–); 
 		break;
 		
 		case 'a' : res = new Array7x7(charSmallA); 
@@ -174,13 +174,13 @@ public class Chars {
 		case 'z' : res = new Array7x7(charSmallZ); 
 		break;
 
-		case 'å' : res = new Array7x7(charSmallÅ); 
+		case 'Ã¥' : res = new Array7x7(charSmallÃ…); 
 		break;
 
-		case 'ä' : res = new Array7x7(charSmallÄ); 
+		case 'Ã¤' : res = new Array7x7(charSmallÃ„); 
 		break;
 
-		case 'ö' : res = new Array7x7(charSmallÖ); 
+		case 'Ã¶' : res = new Array7x7(charSmallÃ–); 
 		break;
 
 		case '1' : res = new Array7x7(char1); 
@@ -250,7 +250,7 @@ public class Chars {
 		break;
 
 		/*
-		// Vet ej hur får med backslash :/
+		// Vet ej hur fï¿½r med backslash :/
 		case '\' : res = new Array7x7(BACKSLASH); 
 		break;
 		*/
@@ -536,7 +536,7 @@ public class Chars {
 			{0, 1, 1, 1, 1, 1, 0}
 	};
 
-	public static int[][] charÅ = {
+	public static int[][] charÃ… = {
 			{0, 0, 0, 1, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -546,7 +546,7 @@ public class Chars {
 			{0, 1, 0, 0, 0, 1, 0}
 	};
 
-	public static int[][] charÄ = {
+	public static int[][] charÃ„ = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -556,7 +556,7 @@ public class Chars {
 			{0, 1, 0, 0, 0, 1, 0}
 	};
 
-	public static int[][] charÖ = {
+	public static int[][] charÃ– = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 1, 1, 0, 0},
@@ -826,7 +826,7 @@ public class Chars {
 			{0, 0, 1, 1, 1, 1, 0}
 	};
 	
-	public static int[][] charSmallÅ = {
+	public static int[][] charSmallÃ… = {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 1, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
@@ -837,7 +837,7 @@ public class Chars {
 	};
 	
 	
-	public static int[][] charSmallÄ = {
+	public static int[][] charSmallÃ„ = {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
@@ -847,7 +847,7 @@ public class Chars {
 			{0, 0, 1, 1, 1, 1, 0}
 	};
 	
-	public static int[][] charSmallÖ = {
+	public static int[][] charSmallÃ– = {
 			{0, 0, 1, 0, 1, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
