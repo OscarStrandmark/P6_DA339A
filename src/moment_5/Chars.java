@@ -264,12 +264,12 @@ public class Chars {
 		case '\u0020' : res = new Array7x7(SPACE); 
 		break;
 
-		/*
-		case '""' : res = new Array7x7(UNKNOWN); 
-		break;
-		*/
 		
-		default : res = new Array7x7(AMPERSAND); 
+		case '\"' : res = new Array7x7(UNKNOWN); 
+		break;
+		
+		
+		default : res = new Array7x7(UNKNOWN); 
 		break;
 		}
 
@@ -1118,12 +1118,32 @@ public class Chars {
 
 	public static int[][] UNKNOWN = {
 			{1, 1, 1, 1, 1, 1, 1},
-			{1, 1, 1, 1, 1, 1, 1},
-			{1, 1, 1, 1, 1, 1, 1},
-			{1, 1, 1, 1, 1, 1, 1},
-			{1, 1, 1, 1, 1, 1, 1},
-			{1, 1, 1, 1, 1, 1, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
 			{1, 1, 1, 1, 1, 1, 1}
+	};
+	
+	public static int[][] SINGLEQUOTE = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0}
+	};
+	
+	public static int[][] DOUBLEQUOTE = {
+			{0, 0, 1, 0, 1, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0}
 	};
 }
 

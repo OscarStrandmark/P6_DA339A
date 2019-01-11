@@ -60,15 +60,28 @@ public class Viewer extends JFrame {
 		btnRght.addActionListener(bListener);
 	}
 	
-	public void updateDisplay(Array7x7[][] colorMatrix) {
-		for (int row = 0; row < colorMatrix.length; row++) {
-			for (int col = 0; col < colorMatrix[0].length; col++) {
+	public void test7x7(Array7x7 arr) {
+		int[][] intarr = arr.toIntArray();
+		
+		for (int row = 0; row < intarr.length; row++) {
+			for (int col = 0; col < intarr[0].length; col++) {
+				System.out.print(intarr[col][row]);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void setDisplay(Array7x7[][] colorMatrix) {
+		display.clearDisplay();
+		 
+		for (int col = 0; col < colorMatrix[0].length; col++) {
+			for (int row = 0; row < colorMatrix.length; row++) {
 				display.setDisplay(colorMatrix[row][col].toIntArray(), row, col);
 			}
 		}
+		
 		display.updateDisplay();
 	}
-	
 	class ButtonListener implements ActionListener {
 
 		@Override
