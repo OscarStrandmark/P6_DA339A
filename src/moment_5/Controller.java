@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import javafiles.Color;
 import moment_1.Array7x7;
-import moment_1.Array7;
 
 public class Controller {
 
@@ -20,6 +19,14 @@ public class Controller {
 		this.cols = cols;
 		matrix = new Array7x7[rows][cols];
 		initMatrix(matrix);
+	}
+	
+	public void left() {
+		//TODO: Timertask
+	}
+	
+	public void right() {
+		//TODO: Timertask
 	}
 	
 	public void enterString(String str) {
@@ -90,4 +97,5 @@ public class Controller {
 	public void setViewer(Viewer viewer) {
 		this.viewer = viewer;
 	}
+
 }

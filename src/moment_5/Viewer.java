@@ -92,6 +92,13 @@ public class Viewer extends JFrame {
 				controller.enterString(str);
 			}
 			
+			if(e.getSource() == btnLeft) {
+				controller.left();
+			}
+			
+			if(e.getSource() == btnRght) {
+				controller.right();
+			}
 		}
 		
 	}
