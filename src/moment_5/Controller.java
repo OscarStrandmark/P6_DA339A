@@ -11,7 +11,8 @@ public class Controller {
 
 	private int rows;
 	private int cols;
-	
+	private int delay = 100; //delay in milliseconds before task is to be executed
+	private int period = 100; //time in milliseconds between successive task executions.
 	private Array7x7[][] matrix;
 	private Viewer viewer;
 	private Timer timer;
@@ -24,22 +25,39 @@ public class Controller {
 		initMatrix(matrix);
 	}
 	
-	public void shiftLeft() {
+	public void shiftLeftTimer() {
 		timer = new Timer();
-		timer.schedule(new ShiftLeft(), 0);
+		timer.schedule(new ShiftLeft(), delay, period);
 	}
 	
-	public void shiftloopLeft() {
-		//TODO: Implementera
+	public void shiftLeft(Array7x7[][] matrix) {
+
+		Array7 temp = null;
+		
+		for (int row = 0; row < matrix.length; row++) {
+			temp = matrix[row][0].getCol(0);
+			for (int col = matrix[0].length-1; col >= 0; col--) {
+				System.out.println("row:" + row + ",col:" + col);
+				temp = matrix[row][col].shiftLeft(temp);
+			}
+		}
+		
 	}
 	
-	public void shiftRight() {
+	public void shiftRightTimer() {
 		timer = new Timer();
 		timer.schedule(new ShiftRight(), 0);
 	}
 	
-	public void shiftloopRight() {
-		//TODO: Implementera
+	public void shiftRight(Array7x7[][] matrix) {
+		Array7 temp = null;
+		
+		for (int row = 0; row < matrix.length; row++) {
+			temp = matrix[row][matrix.length-1].getCol(6);
+			for (int col = 0; col < matrix[0].length; col++) {
+				temp = matrix[row][col].shiftRight(temp);
+			}
+		}
 	}
 	
 	public void shiftStop() {
@@ -71,6 +89,22 @@ public class Controller {
 		viewer.setDisplay(colorMatrix);
 	}
 	
+	private void updateView(Array7x7[][] matrix) {
+		Array7x7[][] colorMatrix = new Array7x7[rows][cols];
+		
+		for (int row = 0; row < matrix.length; row++) {
+			for (int col = 0; col < matrix[0].length; col++) {
+				colorMatrix[row][col] = toColor(matrix[row][col]);
+			}
+		}
+		
+		viewer.setDisplay(colorMatrix);
+	}
+	
+	/**
+	 * Fyller matrisen med tomma Array7x7-objekt. 
+	 * 
+	 */
 	private void initMatrix(Array7x7[][] matrix) {
 		for (int row = 0; row < matrix.length; row++) {
 			for (int col = 0; col < matrix[0].length; col++) {
@@ -79,6 +113,11 @@ public class Controller {
 		}
 	}
 	
+	
+	/**
+	 * Fyller Array7x7-objekten i matrisen med 0or
+	 * 
+	 */
 	private void resetMatrix(Array7x7[][] matrix) {
 		
 		Array7x7 temp;
@@ -123,8 +162,14 @@ public class Controller {
 		private int counter = 0;
 		@Override
 		public void run() {
-			counter++;
-			shiftloopLeft();		
+			if(counter < 7) {
+				counter++;
+				shiftLeft(matrix);
+				updateView(matrix);
+			} else {
+				timer.cancel();
+				timer = null;
+			}
 		}	
 	}
 	
@@ -133,7 +178,8 @@ public class Controller {
 		@Override
 		public void run() {
 			counter++;
-			shiftloopRight();
+			shiftRight(matrix);
+			updateView(matrix);
 		}
 	}
 }

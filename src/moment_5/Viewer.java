@@ -99,11 +99,11 @@ public class Viewer extends JFrame {
 			}
 			
 			if(e.getSource() == btnLeft) {
-				controller.shiftLeft();
+				controller.shiftLeftTimer();
 			}
 			
 			if(e.getSource() == btnRght) {
-				controller.shiftRight();
+				controller.shiftRightTimer();
 			}
 			
 			if(e.getSource() == btnStop) {
