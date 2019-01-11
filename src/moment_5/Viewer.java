@@ -21,13 +21,15 @@ public class Viewer extends JFrame {
 	private JButton btnLeft = new JButton("Scroll left");
 	private JButton btnRght = new JButton("Scroll right");
 	private JButton btnText = new JButton("Enter text");
+	private JButton btnStop = new JButton("Stop Scrolling");
+	
 	
 	private Controller controller;
 	
 	public Viewer(int cols, int rows, Controller controller) {
 		this.cols = cols;
 		this.rows = rows;
-		display = new ColorDisplay(rows, cols, Color.BLACK, Color.WHITE, 1, 1);
+		display = new ColorDisplay(rows, cols, Color.BLACK, Color.WHITE, 0, 3);
 		init();
 		
 		this.controller = controller;
@@ -43,14 +45,18 @@ public class Viewer extends JFrame {
 
 		//Southpanel
 		JPanel southPane = new JPanel();
-		southPane.setLayout(new GridLayout(1,3));
+		southPane.setLayout(new GridLayout(2,3));
 		southPane.add(btnLeft);
 		southPane.add(btnText);
 		southPane.add(btnRght);
+		southPane.add(new JPanel());
+		southPane.add(btnStop);
+		southPane.add(new JPanel());
+		
 		add(southPane,BorderLayout.SOUTH);
 		
-		
-		setPreferredSize(new Dimension(500,500));
+		setPreferredSize(new Dimension(1000,1000));
+		setSize(new Dimension(1000,1000));
 	}
 	
 	private void addListeners() {
@@ -93,11 +99,15 @@ public class Viewer extends JFrame {
 			}
 			
 			if(e.getSource() == btnLeft) {
-				controller.left();
+				controller.shiftLeft();
 			}
 			
 			if(e.getSource() == btnRght) {
-				controller.right();
+				controller.shiftRight();
+			}
+			
+			if(e.getSource() == btnStop) {
+				controller.shiftStop();
 			}
 		}
 		

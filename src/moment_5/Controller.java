@@ -1,8 +1,10 @@
 package moment_5;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
-
 import javafiles.Color;
+import moment_1.Array7;
 import moment_1.Array7x7;
 
 public class Controller {
@@ -11,8 +13,9 @@ public class Controller {
 	private int cols;
 	
 	private Array7x7[][] matrix;
-	
 	private Viewer viewer;
+	private Timer timer;
+	
 	public Controller(int rows, int cols) {
 
 		this.rows = rows;
@@ -21,13 +24,30 @@ public class Controller {
 		initMatrix(matrix);
 	}
 	
-	public void left() {
-		//TODO: Timertask
+	public void shiftLeft() {
+		timer = new Timer();
+		timer.schedule(new ShiftLeft(), 0);
 	}
 	
-	public void right() {
-		//TODO: Timertask
+	public void shiftloopLeft() {
+		//TODO: Implementera
 	}
+	
+	public void shiftRight() {
+		timer = new Timer();
+		timer.schedule(new ShiftRight(), 0);
+	}
+	
+	public void shiftloopRight() {
+		//TODO: Implementera
+	}
+	
+	public void shiftStop() {
+		timer.cancel();
+		timer.purge();
+		timer = null;
+	}
+	
 	
 	public void enterString(String str) {
 		
@@ -94,8 +114,27 @@ public class Controller {
 		}
 		return new Array7x7(newArr);
 	}
+	
 	public void setViewer(Viewer viewer) {
 		this.viewer = viewer;
 	}
 
+	private class ShiftLeft extends TimerTask {
+		private int counter = 0;
+		@Override
+		public void run() {
+			counter++;
+			shiftloopLeft();		
+		}	
+	}
+	
+	private class ShiftRight extends TimerTask {
+		private int counter = 0;
+		@Override
+		public void run() {
+			counter++;
+			shiftloopRight();
+		}
+	}
 }
+
