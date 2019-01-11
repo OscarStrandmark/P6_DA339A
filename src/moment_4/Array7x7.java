@@ -61,7 +61,6 @@ public class Array7x7 {
 	}
 
 	public void setArray(Array7x7 array7x7) {                   // Lagt till hela metoden /K
-		System.out.print("hej");
 		for (int row = 0; row < this.array.length; row++) {
 			for (int col = 0; col < this.array.length; col++) {
 				this.array[row][col] = array7x7.getElement(row, col);

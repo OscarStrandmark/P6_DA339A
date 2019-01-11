@@ -61,8 +61,11 @@ public class Array7x7 {
 	}
 
 	public void setArray(Array7x7 array7x7) {
-		System.out.print("hej");
-
+		for (int row = 0; row < this.array.length; row++) {
+			for (int col = 0; col < this.array.length; col++) {
+				this.array[row][col] = array7x7.getElement(row, col);
+			}
+		}
 	}
 
 	/**
@@ -104,43 +107,43 @@ public class Array7x7 {
 
 	public Array7 shiftLeft(Array7 in) {
 		int[] outArray = new int[7];
-		
+
 		for (int i = 0; i < array.length; i++) {
 			outArray[i] = array[i][0];
 		}
-		Array7 out = new Array7(outArray); //Raden längst till vänster som flyttas ut.
-		
-		for (int row = 0; row < array.length; row++) {	//Flyttar allt 1 steg vänster
+		Array7 out = new Array7(outArray); // Raden längst till vänster som flyttas ut.
+
+		for (int row = 0; row < array.length; row++) { // Flyttar allt 1 steg vänster
 			for (int col = 1; col < array[0].length; col++) {
-				array[row][col-1] = array[row][col];
+				array[row][col - 1] = array[row][col];
 			}
 		}
-		
-		for (int row = 0; row < array.length; row++) { //Lägger in array i parameter längst till höger i matrisen.
-			array[row][array.length-1] = in.getElement(row);
+
+		for (int row = 0; row < array.length; row++) { // Lägger in array i parameter längst till höger i matrisen.
+			array[row][array.length - 1] = in.getElement(row);
 		}
-		
+
 		return out;
 	}
 
 	public Array7 shiftRight(Array7 in) {
 		int[] outArray = new int[7];
-		
+
 		for (int i = 0; i < array.length; i++) {
-			outArray[i] = array[i][array.length-1];
+			outArray[i] = array[i][array.length - 1];
 		}
-		Array7 out = new Array7(outArray); //Raden längst till höger som flyttas ut.
-		
-		for (int row = 0; row < array.length; row++) { //Flyttar allt 1 steg till höger
-			for (int col = array[0].length-1; col >  0; col--) {
-				array[row][col] = array[row][col-1];
+		Array7 out = new Array7(outArray); // Raden längst till höger som flyttas ut.
+
+		for (int row = 0; row < array.length; row++) { // Flyttar allt 1 steg till höger
+			for (int col = array[0].length - 1; col > 0; col--) {
+				array[row][col] = array[row][col - 1];
 			}
 		}
-		
-		for (int row = 0; row < array.length; row++) { //Lägger in array i parameter till vänster i matrisen.
+
+		for (int row = 0; row < array.length; row++) { // Lägger in array i parameter till vänster i matrisen.
 			array[row][0] = in.getElement(row);
 		}
-		
+
 		return out;
 	}
 }

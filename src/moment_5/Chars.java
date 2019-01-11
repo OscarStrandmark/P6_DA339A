@@ -261,7 +261,7 @@ public class Chars {
 		case '%': res = new Array7x7(PERCENT); 
 		break;
 
-		case ' ' : res = new Array7x7(SPACE); 
+		case '\u0020' : res = new Array7x7(SPACE); 
 		break;
 
 		/*
