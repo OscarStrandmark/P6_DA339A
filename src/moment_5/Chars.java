@@ -231,10 +231,22 @@ public class Chars {
 		case '@' : res = new Array7x7(ATSIGN); 
 		break;
 
-		case '(' : res = new Array7x7(STARTBRACKET); 
+		case '[' : res = new Array7x7(STARTBRACKET); 
 		break;
 
-		case ')' : res = new Array7x7(ENDBRACKET); 
+		case ']' : res = new Array7x7(ENDBRACKET); 
+		break;
+		
+		case '{' : res = new Array7x7(STARTBRACKETCURLY); 
+		break;
+
+		case '}' : res = new Array7x7(ENDBRACKETCURLY); 
+		break;
+		
+		case '(' : res = new Array7x7(STARTPARENTHESES); 
+		break;
+
+		case ')' : res = new Array7x7(ENDPARENTHESES); 
 		break;
 
 		case '.' : res = new Array7x7(DOT); 
@@ -248,12 +260,9 @@ public class Chars {
 
 		case '/' : res = new Array7x7(SLASH); 
 		break;
-
-		/*
-		// Vet ej hur fï¿½r med backslash :/
-		case '\' : res = new Array7x7(BACKSLASH); 
+		
+		case '\\' : res = new Array7x7(BACKSLASH); 
 		break;
-		*/
 		
 		case '&': res = new Array7x7(AMPERSAND); 
 		break;
@@ -263,11 +272,39 @@ public class Chars {
 
 		case '\u0020' : res = new Array7x7(SPACE); 
 		break;
-
 		
-		case '\"' : res = new Array7x7(UNKNOWN); 
+		case '\"' : res = new Array7x7(DOUBLEQUOTE); 
 		break;
 		
+		case '!' : res = new Array7x7(EXCLAMATION); 
+		break;
+		
+		case '\'' : res = new Array7x7(SINGLEQUOTE); 
+		break;
+		
+		case '€' : res = new Array7x7(EUROSIGN); 
+		break;
+		
+		case '$' : res = new Array7x7(DOLLARSIGN); 
+		break;
+		
+		case '£' : res = new Array7x7(POUNDSIGN); 
+		break;
+		
+		case '|' : res = new Array7x7(POLE); 
+		break;
+		
+		case '#' : res = new Array7x7(HASHTAG); 
+		break;
+		
+		case '<' : res = new Array7x7(SMALLERTHAN); 
+		break;
+		
+		case '>' : res = new Array7x7(BIGGERTHAN); 
+		break;
+		
+		case '_' : res = new Array7x7(UNDERLINE); 
+		break;
 		
 		default : res = new Array7x7(UNKNOWN); 
 		break;
@@ -1017,23 +1054,23 @@ public class Chars {
 	};
 
 	public static int[][] STARTBRACKET = {
-			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 1, 0, 0, 0},
 			{0, 0, 1, 0, 0, 0, 0},
 			{0, 0, 1, 0, 0, 0, 0},
 			{0, 0, 1, 0, 0, 0, 0},
 			{0, 0, 1, 0, 0, 0, 0},
 			{0, 0, 1, 0, 0, 0, 0},
-			{0, 0, 0, 1, 0, 0, 0}
+			{0, 0, 1, 1, 0, 0, 0}
 	};
 
 	public static int[][] ENDBRACKET = {
-			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 1, 0, 0},
 			{0, 0, 0, 0, 1, 0, 0},
 			{0, 0, 0, 0, 1, 0, 0},
 			{0, 0, 0, 0, 1, 0, 0},
 			{0, 0, 0, 0, 1, 0, 0},
 			{0, 0, 0, 0, 1, 0, 0},
-			{0, 0, 0, 1, 0, 0, 0}
+			{0, 0, 0, 1, 1, 0, 0}
 	};
 
 	public static int[][] DOT = {
@@ -1115,16 +1152,6 @@ public class Chars {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0}
 	};
-
-	public static int[][] UNKNOWN = {
-			{1, 1, 1, 1, 1, 1, 1},
-			{1, 0, 0, 0, 0, 0, 1},
-			{1, 0, 0, 0, 0, 0, 1},
-			{1, 0, 0, 0, 0, 0, 1},
-			{1, 0, 0, 0, 0, 0, 1},
-			{1, 0, 0, 0, 0, 0, 1},
-			{1, 1, 1, 1, 1, 1, 1}
-	};
 	
 	public static int[][] SINGLEQUOTE = {
 			{0, 0, 0, 1, 0, 0, 0},
@@ -1145,5 +1172,144 @@ public class Chars {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0}
 	};
-}
+	
+	public static int[][] EXCLAMATION = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
+	
+	public static int[][] STARTBRACKETCURLY = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 1, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
 
+	public static int[][] ENDBRACKETCURLY = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 1, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
+	
+	public static int[][] ENDPARENTHESES = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
+	
+	public static int[][] STARTPARENTHESES = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
+	
+	public static int[][] EUROSIGN = {
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 1, 1, 1, 1, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0}
+	};
+	
+	public static int[][] DOLLARSIGN = {
+			{0, 0, 1, 1, 1, 0, 0},
+			{0, 1, 0, 1, 0, 1, 0},
+			{0, 1, 0, 1, 0, 0, 0},
+			{0, 0, 1, 1, 1, 0, 0},
+			{0, 0, 0, 1, 0, 1, 0},
+			{0, 1, 0, 1, 0, 1, 0},
+			{0, 0, 1, 1, 1, 0, 0}
+	};
+	
+	public static int[][] POUNDSIGN = {
+			{0, 0, 0, 1, 1, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 1, 1, 1, 0, 0}
+	};
+	
+	public static int[][] POLE = {
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0}
+	};
+	
+	public static int[][] BIGGERTHAN = {
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0}
+	};
+	
+	public static int[][] SMALLERTHAN= {
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0}
+	};
+	
+	public static int[][] HASHTAG = {
+			{0, 0, 1, 0, 1, 0, 0},
+			{0, 0, 1, 0, 1, 0, 0},
+			{1, 1, 1, 1, 1, 1, 1},
+			{0, 0, 1, 0, 1, 0, 0},
+			{1, 1, 1, 1, 1, 1, 1},
+			{0, 0, 1, 0, 1, 0, 0},
+			{0, 0, 1, 0, 1, 0, 0}
+	};
+	
+	public static int[][] UNDERLINE= {
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 1, 1, 1, 1, 1, 0}
+	};
+	
+	public static int[][] UNKNOWN = {
+			{1, 1, 1, 1, 1, 1, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 0, 0, 0, 0, 0, 1},
+			{1, 1, 1, 1, 1, 1, 1}
+	};
+}
