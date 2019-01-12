@@ -95,7 +95,11 @@ public class Viewer extends JFrame {
 			
 			if(e.getSource() == btnText) {
 				String str = JOptionPane.showInputDialog("Ange en sträng");
-				controller.enterString(str);
+				if(str.length() > 0) {
+					controller.enterString(str);
+				} else {
+					JOptionPane.showMessageDialog(null, "Sträng måste vara längre än 0", "Error!", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 			
 			if(e.getSource() == btnLeft) {

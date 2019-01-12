@@ -11,8 +11,8 @@ public class Controller {
 
 	private int rows;
 	private int cols;
-	private int delay = 100; // delay in milliseconds before task is to be executed
-	private int period = 100; // time in milliseconds between successive task executions.
+	private int delay = 1; // delay in milliseconds before task is to be executed
+	private int period = 20; // time in milliseconds between successive task executions.
 	private Array7x7[][] matrix;
 	private Viewer viewer;
 	private Timer timer;
@@ -35,10 +35,13 @@ public class Controller {
 		Array7 temp = null;
 
 		for (int row = 0; row < matrix.length; row++) {
+			
 			temp = matrix[row][0].getCol(0);
+			
 			for (int col = matrix[0].length - 1; col >= 0; col--) {
-				//System.out.println("row:" + row + ",col:" + col);
+				
 				temp = matrix[row][col].shiftLeft(temp);
+				
 			}
 		}
 
@@ -46,28 +49,34 @@ public class Controller {
 
 	public void shiftRightTimer() {
 		timer = new Timer();
-		timer.schedule(new ShiftRight(), 0);
+		timer.schedule(new ShiftRight(), delay, period);
 	}
 
 	public void shiftRight(Array7x7[][] matrix) {
+		
 		Array7 temp = null;
 
 		for (int row = 0; row < matrix.length; row++) {
-			temp = matrix[row][matrix.length - 1].getCol(6);
+			
+			temp = matrix[row][matrix[0].length-1].getCol(6);
+			
 			for (int col = 0; col < matrix[0].length; col++) {
+				
 				temp = matrix[row][col].shiftRight(temp);
+				
 			}
 		}
 	}
 
 	public void shiftStop() {
+		//TODO: Få denna metod att fungera. 
 		timer.cancel();
 		timer.purge();
 		timer = null;
 	}
 
 	public void enterString(String str) {
-
+		
 		resetMatrix(matrix);
 		char[] charArr = str.toCharArray();
 
@@ -165,7 +174,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < 7) {
+			if (counter < (7 * cols)) {
 				counter++;
 				System.out.println(counter);
 				shiftLeft(matrix);
@@ -182,7 +191,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < 7) {
+			if (counter < (7 * cols)) {
 				counter++;
 				shiftRight(matrix);
 				updateView(matrix);
