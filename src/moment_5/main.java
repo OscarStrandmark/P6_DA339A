@@ -6,8 +6,6 @@ public class main {
 		int rows = 5;
 		int cols = 60;
 		
-		
-		
 		Controller controller = new Controller(rows,cols);
 		Viewer viewer = new Viewer(cols, rows, controller);
 		controller.setViewer(viewer);
