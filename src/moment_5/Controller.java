@@ -77,6 +77,8 @@ public class Controller {
 
 	public void enterString(String str) {
 		
+		matrix = new Array7x7[rows][cols];
+		initMatrix(matrix);
 		resetMatrix(matrix);
 		char[] charArr = str.toCharArray();
 
@@ -200,9 +202,5 @@ public class Controller {
 				timer = null;
 			}
 		}
-	}
-	
-	public Array7x7[][] getMatrix(){
-		return matrix;
 	}
 }

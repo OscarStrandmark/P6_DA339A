@@ -4,7 +4,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		int rows = 5;
-		int cols = 50;
+		int cols = 35;
 		
 		Controller controller = new Controller(rows,cols);
 		Viewer viewer = new Viewer(cols, rows, controller);
