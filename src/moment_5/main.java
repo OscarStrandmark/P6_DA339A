@@ -3,7 +3,7 @@ package moment_5;
 public class main {
 	public static void main(String[] args) {
 		
-		int rows = 5;
+		int rows = 1;
 		int cols = 50;
 		
 		Controller controller = new Controller(rows,cols);

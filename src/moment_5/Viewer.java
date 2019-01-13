@@ -81,10 +81,16 @@ public class Viewer extends JFrame {
 		display.clearDisplay();
 		 
 		for (int col = 0; col < colorMatrix[0].length; col++) {
+			display.setDisplay(colorMatrix[0][col].toIntArray(), 0, col);
+		}
+		
+		/*
+		for (int col = 0; col < colorMatrix[0].length; col++) {
 			for (int row = 0; row < colorMatrix.length; row++) {
 				display.setDisplay(colorMatrix[row][col].toIntArray(), row, col);
 			}
 		}
+		*/
 		
 		display.updateDisplay();
 	}

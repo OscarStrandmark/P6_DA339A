@@ -34,15 +34,12 @@ public class Controller {
 
 		Array7 temp = null;
 
-		for (int row = 0; row < matrix.length; row++) {
-			
-			temp = matrix[row][0].getCol(0);
-			
-			for (int col = matrix[0].length - 1; col >= 0; col--) {
-				
-				temp = matrix[row][col].shiftLeft(temp);
-				
-			}
+		temp = matrix[0][0].getCol(0);
+
+		for (int col = matrix[0].length - 1; col >= 0; col--) {
+
+			temp = matrix[0][col].shiftLeft(temp);
+
 		}
 
 	}
@@ -53,30 +50,28 @@ public class Controller {
 	}
 
 	public void shiftRight(Array7x7[][] matrix) {
-		
+
 		Array7 temp = null;
 
-		for (int row = 0; row < matrix.length; row++) {
-			
-			temp = matrix[row][matrix[0].length-1].getCol(6);
-			
-			for (int col = 0; col < matrix[0].length; col++) {
-				
-				temp = matrix[row][col].shiftRight(temp);
-				
-			}
+		temp = matrix[0][matrix[0].length - 1].getCol(6);
+
+		for (int col = 0; col < matrix[0].length; col++) {
+
+			temp = matrix[0][col].shiftRight(temp);
+
 		}
+
 	}
 
 	public void shiftStop() {
-		//TODO: Få denna metod att fungera. 
+		// TODO: Få denna metod att fungera.
 		timer.cancel();
 		timer.purge();
 		timer = null;
 	}
 
 	public void enterString(String str) {
-		
+
 		matrix = new Array7x7[rows][cols];
 		initMatrix(matrix);
 		resetMatrix(matrix);
@@ -89,7 +84,7 @@ public class Controller {
 		for (int i = 0; i < charArr.length; i++) {
 			matrix[0][i] = Chars.getChar(charArr[i]);
 		}
-		
+
 		for (int row = 0; row < colorMatrix.length; row++) {
 			for (int col = 0; col < colorMatrix[0].length; col++) {
 				colorMatrix[row][col] = toColor(colorMatrix[row][col]);
@@ -105,13 +100,15 @@ public class Controller {
 
 	private void updateView(Array7x7[][] matrix) {
 		Array7x7[][] colorMatrix = new Array7x7[rows][cols];
+		initMatrix(colorMatrix);
+		resetMatrix(colorMatrix);
 
 		for (int row = 0; row < matrix.length; row++) {
 			for (int col = 0; col < matrix[0].length; col++) {
 				colorMatrix[row][col] = toColor(matrix[row][col]);
 			}
 		}
-		
+
 		viewer.setDisplay(colorMatrix);
 	}
 
@@ -176,7 +173,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < (7  * cols )) {
+			if (counter < (1)) {
 				counter++;
 				System.out.println(counter);
 				shiftLeft(matrix);
@@ -193,7 +190,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < (7  * cols )) {
+			if (counter < (1)) {
 				counter++;
 				shiftRight(matrix);
 				updateView(matrix);
