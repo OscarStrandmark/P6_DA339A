@@ -11,13 +11,11 @@ public class Controller {
 	}
 
 	public void shiftLeft() {
-		array.shiftLeft(array.getCol(6));
-		viewer.updateDisplay();
+		array.shiftLeft(array.getCol(0));
 	}
 
 	public void shiftRight() {
-		array.shiftRight(array.getCol(0));
-		viewer.updateDisplay();
+		array.shiftRight(array.getCol(6));
 	}
 	
 	public Array7x7 getArray() {

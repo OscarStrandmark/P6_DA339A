@@ -34,6 +34,8 @@ public class Viewer extends JFrame {
 		southPanel.add(btnRght);
 		add(southPanel,BorderLayout.SOUTH);
 		add(display,BorderLayout.CENTER);
+		
+		addListeners();
 	}
 	
 	public void updateDisplay() {
@@ -61,6 +63,12 @@ public class Viewer extends JFrame {
 		}
 		return colorArray;
 	}
+	
+	private void addListeners() {
+		ButtonListener buttonListener = new ButtonListener();
+		btnLeft.addActionListener(buttonListener);
+		btnRght.addActionListener(buttonListener);
+	}
 
 	class ButtonListener implements ActionListener {
 
@@ -69,10 +77,12 @@ public class Viewer extends JFrame {
 
 			if (e.getSource() == btnRght) {
 				controller.shiftRight();
+				updateDisplay();
 			}
 
 			if (e.getSource() == btnLeft) {
 				controller.shiftLeft();
+				updateDisplay();
 			}
 		}
 	}
