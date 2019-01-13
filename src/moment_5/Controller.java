@@ -11,8 +11,8 @@ public class Controller {
 
 	private int rows;
 	private int cols;
-	private int delay = 1; // delay in milliseconds before task is to be executed
-	private int period = 20; // time in milliseconds between successive task executions.
+	private int delay = 5; // delay in milliseconds before task is to be executed
+	private int period = 100; // time in milliseconds between successive task executions.
 	private Array7x7[][] matrix;
 	private Viewer viewer;
 	private Timer timer;
@@ -111,7 +111,7 @@ public class Controller {
 				colorMatrix[row][col] = toColor(matrix[row][col]);
 			}
 		}
-
+		
 		viewer.setDisplay(colorMatrix);
 	}
 
@@ -176,7 +176,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < (7 * cols)) {
+			if (counter < (7  * cols )) {
 				counter++;
 				System.out.println(counter);
 				shiftLeft(matrix);
@@ -193,7 +193,7 @@ public class Controller {
 
 		@Override
 		public void run() {
-			if (counter < (7 * cols)) {
+			if (counter < (7  * cols )) {
 				counter++;
 				shiftRight(matrix);
 				updateView(matrix);

@@ -13,8 +13,8 @@ import moment_1.Array7x7;
 
 public class Viewer extends JFrame {
 
-	private int cols = 50;
-	private int rows = 5;
+	private int cols;
+	private int rows;
 	
 	private ColorDisplay display;
 	
@@ -56,7 +56,7 @@ public class Viewer extends JFrame {
 		add(southPane,BorderLayout.SOUTH);
 		
 		setPreferredSize(new Dimension(1000,1000));
-		setSize(new Dimension(1000,1000));
+		setSize(new Dimension(1920,1080));
 	}
 	
 	private void addListeners() {
@@ -100,6 +100,7 @@ public class Viewer extends JFrame {
 					JOptionPane.showMessageDialog(null, "Sträng måste vara längre än 0!", "Error!", JOptionPane.ERROR_MESSAGE);
 				} else if(str.length() > cols) {
 					JOptionPane.showMessageDialog(null, "Sträng är för lång!", "Error!", JOptionPane.ERROR_MESSAGE);
+					System.out.println();
 				} else {
 					controller.enterString(str);
 				}
