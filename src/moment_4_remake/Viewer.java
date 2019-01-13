@@ -42,7 +42,7 @@ public class Viewer extends JFrame {
 		display.clearDisplay();
 		
 		display.setDisplay(toColor());
-		System.out.println("ffs");
+
 		display.updateDisplay();
 	}
 	
