@@ -45,13 +45,16 @@ public class Viewer extends JFrame {
 
 		//Southpanel
 		JPanel southPane = new JPanel();
-		southPane.setLayout(new GridLayout(2,3));
+		southPane.setLayout(new GridLayout(1,3));
 		southPane.add(btnLeft);
 		southPane.add(btnText);
 		southPane.add(btnRght);
+		
+		/*
 		southPane.add(new JPanel());
 		southPane.add(btnStop);
 		southPane.add(new JPanel());
+		*/
 		
 		add(southPane,BorderLayout.SOUTH);
 		
