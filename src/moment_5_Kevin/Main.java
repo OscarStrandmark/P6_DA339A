@@ -5,10 +5,9 @@ public class Main {
 		
 		int rows = 1;
 		int cols = 10;
-		String str = "Test";
 		
 		Viewer viewer = new Viewer(rows,cols);
-		Controller controller = new Controller(rows,cols, str);
+		Controller controller = new Controller(rows,cols);
 		
 		viewer.setController(controller);
 		controller.setViewer(viewer);
@@ -20,9 +19,6 @@ public class Main {
  * ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ
  * !"#%&/()=?
  * @£$€{[]}\
+ * Yxmördaren Julia Blomqvist på fäktning i Schweiz
  */
 
-/* Test-strängar som EJ fungerar
- * Yxmördaren Julia Blomqvist på fäktning i Schweiz
- * 
- */

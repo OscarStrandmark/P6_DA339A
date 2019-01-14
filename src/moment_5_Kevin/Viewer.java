@@ -32,7 +32,7 @@ public class Viewer extends JFrame {
 	private int squareColor     = Color.BLACK;
 	private int gridStroke 		= 1;  //Storlek på linjer mellan pixlar
 	private int sideSize 		= 100; //Storlek på pixlar.
-	int counter = 0;
+	int timerRunning = 0;
 
 	public Viewer(int row, int col) {
 
@@ -44,7 +44,7 @@ public class Viewer extends JFrame {
 
 		setLayout(new BorderLayout());
 
-		display = new ColorDisplay(rows, cols, backgroundColor, gridColor);
+		display = new ColorDisplay(rows, cols, backgroundColor, gridColor, gridStroke, sideSize);
 		add(display, BorderLayout.CENTER);
 
 		JPanel southPanel = new JPanel(new GridLayout(1, 3));
@@ -99,19 +99,19 @@ public class Viewer extends JFrame {
 		
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnLeft) {
-				if(counter>0) {
+				if(timerRunning>0) {
 					controller.stopTimer();
 				}
 				controller.shiftLeftTimer();
-				counter++;
+				timerRunning++;
 			}
 
 			if (e.getSource() == btnRght) {
-				if(counter>0) {
+				if(timerRunning>0) {
 					controller.stopTimer();
 				}
 				controller.shiftRightTimer();
-				counter++;
+				timerRunning++;
 
 			}
 
@@ -123,7 +123,7 @@ public class Viewer extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				} else {
 					controller.setStringToScreen(input);
-					controller.Test();
+					controller.run();
 			
 				}
 			}

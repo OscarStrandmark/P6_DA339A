@@ -12,62 +12,61 @@ public class Controller {
 	int rows;
 	int cols;
 
-	private Array7x7[] matrix7x7 = new Array7x7[4];
+	private Array7x7[] a7x7Array = new Array7x7[4];
 
 	private Timer timer;
 	private int delay = 100; // delay in milliseconds before task is to be executed
-	private int period = 50; // time in milliseconds between successive task executions.
+	private int period = 25; // time in milliseconds between successive task executions.
 	private String toScreen;
 
-	public Controller(int row, int col, String test) {
+	public Controller(int row, int col) {
 
 		rows = row;
 		cols = col;
-		toScreen = test;
-		Array7x7[] matrix7x7 = new Array7x7[4];
+		toScreen = null;
 		fillMatrixWith0();
-		System.out.println(toScreen);
 	}
 
 	public void setStringToScreen(String str) {
 		toScreen = str;
 	}
 
-	public void Test() {
-		this.matrix7x7 = new Array7x7[toScreen.length() + 15];
-		System.out.println(toScreen);
+	public void run() {
+		
+		this.a7x7Array = new Array7x7[toScreen.length() + 15];
 		fillMatrixWith0();
-		System.out.println(matrix7x7.length);
+		
 		char[] inputArr = toScreen.toCharArray();
-		for (int i = 0; i < matrix7x7.length; i++) {
+		
+		for (int i = 0; i < a7x7Array.length; i++) {
 			if(i < inputArr.length){
-				matrix7x7[i + 10].setArray(Chars.getChar(inputArr[i]));
+				a7x7Array[i + 10].setArray(Chars.getChar(inputArr[i]));
 			}
 		}
-		viewer.updateColorDisplay(matrix7x7);
+		viewer.updateColorDisplay(a7x7Array);
 	}
 
 	public void shiftR() {
 
 		Array7 tempPart = new Array7();
 
-		for (int i = 0; i < matrix7x7.length; i++) {
-			tempPart = matrix7x7[i].shiftRight(tempPart);
-			matrix7x7[0].setCol(0, tempPart);
+		for (int i = 0; i < a7x7Array.length; i++) {
+			tempPart = a7x7Array[i].shiftRight(tempPart);
+			a7x7Array[0].setCol(0, tempPart);
 		}
-		viewer.updateColorDisplay(matrix7x7);
+		viewer.updateColorDisplay(a7x7Array);
 	}
 
 	public void shiftL() {
 
 		Array7 tempPart = new Array7();
 		
-			for (int i = matrix7x7.length - 1; i >= 0; i--) {
-				tempPart = matrix7x7[i].shiftLeft(tempPart);
-				matrix7x7[matrix7x7.length-1].setCol(6, tempPart);
+			for (int i = a7x7Array.length - 1; i >= 0; i--) {
+				tempPart = a7x7Array[i].shiftLeft(tempPart);
+				a7x7Array[a7x7Array.length-1].setCol(6, tempPart);
 		}
 
-			viewer.updateColorDisplay(matrix7x7);
+			viewer.updateColorDisplay(a7x7Array);
 
 	}
 
@@ -88,21 +87,20 @@ public class Controller {
 	}
 
 	public Array7x7[] getModel() {
-		return matrix7x7;
+		return a7x7Array;
 	}
 
 	public void setViewer(Viewer view) {
 		viewer = view;
 	}
-
-//	
+	
 	private void fillMatrixWith0() {
 
-		for (int i = 0; i < matrix7x7.length; i++) {
-			matrix7x7[i] = new Array7x7();
+		for (int i = 0; i < a7x7Array.length; i++) {
+			a7x7Array[i] = new Array7x7();
 			for (int row = 0; row < 7; row++) {
 				for (int col = 0; col < 7; col++) {
-					matrix7x7[i].setElement(row, col, 0);
+					a7x7Array[i].setElement(row, col, 0);
 				}
 			}
 		}
@@ -110,26 +108,18 @@ public class Controller {
 	}
 
 	private class ShiftRight extends TimerTask {
-		private int counter = 0;
 
 		@Override
 		public void run() {
-			if (counter < (400 * cols)) {
 				shiftR();
-				counter++;
-			}
 		}
 	}
 
 	private class ShiftLeft extends TimerTask {
-		private int counter = 0;
 
 		@Override
 		public void run() {
-			if (counter < (400 * cols)) {
 				shiftL();
-				counter++;
-			}
 		}
 	}
 }
