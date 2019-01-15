@@ -13,7 +13,8 @@ public class Array7x7 {
 	}
 
 	public Array7x7(Array7x7 array7x7) {
-
+		
+		array = array7x7.toIntArray();
 	}
 
 	public void setElement(int row, int col, int value) {
