@@ -109,7 +109,6 @@ public class Viewer extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 
 			if(e.getSource() == btnLeft) {
-				
 				controller.startLeftShift();
 			}
 			
