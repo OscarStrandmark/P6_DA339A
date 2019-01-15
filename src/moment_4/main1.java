@@ -70,7 +70,6 @@ public class main1 extends JFrame {
 				//	Controller1 ctrl = new Controller1( ui , a7x );
 				//	ctrl.initController();
 
-
 			
 			/**
 			 * varför vägrar denna att funka?
