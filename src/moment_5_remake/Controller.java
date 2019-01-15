@@ -2,128 +2,131 @@ package moment_5_remake;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import moment_1.Array7;
 import moment_1.Array7x7;
 
 public class Controller {
 
+	private int cols;
+	
+	private Array7x7[] array;
 	private Viewer viewer;
 	
-	int rows;
-	int cols;
-	
-	private Array7x7[][] matrix7x7;
-	
 	private Timer timer;
-	private int delay = 5;		// delay in milliseconds before task is to be executed
-	private int period = 20;	// time in milliseconds between successive task executions.
-	public Controller(int row, int col) {
+	private int delay = 100; // delay in milliseconds before task is to be executed
+	private int period = 100; // time in milliseconds between successive task executions.
+	private boolean timerOn;
+	
+	public Controller(int cols) {
+		this.cols = cols;
 		
-		rows = row;
-		cols = col;
+		array = new Array7x7[cols];
 		
-		matrix7x7 = new Array7x7[row][col];
 	}
 	
-	public void newText(String input) {
-		fillMatrixWith0();
+	public void newText(String text) {
+		zeroArray7x7(array);
 		
-		char[] inputArr = input.toCharArray();
+		char[] charArr = text.toCharArray();
 		
-		for (int i = 0; i < inputArr.length; i++) {
-			matrix7x7[0][i] = Chars.getChar(inputArr[i]);
+		for (int i = 0; i < charArr.length; i++) {
+			array[i] = Chars.getChar(charArr[i]);
 		}
 		
-		viewer.updateColorDisplay();
+		viewer.updateScreen();
 	}
 	
-	public void shiftLeftTimer() {
+	public void shiftL() {
+
+		Array7 temp = array[0].getCol(0);
+		
+		for (int col = cols-1; col >= 0; col--) {
+			temp = array[col].shiftLeft(temp);
+		}
+		
+		viewer.updateScreen();
+	}
+	
+	public void shiftR() {
+		
+		Array7 temp = array[cols-1].getCol(6);
+		
+		for (int i = 0; i < cols; i++) {
+			temp = array[i].shiftRight(temp);
+		}
+		
+		viewer.updateScreen();
+	}
+	
+	public void startLeftShift() {
+		timerOn = true;
 		timer = new Timer();
 		timer.schedule(new ShiftLeft(), delay, period);
 	}
 	
-	private void shiftLeft() {
-		
-		Array7 temp = null;
-		
-		for (int row = 0; row < rows; row++) {
-			
-			temp = matrix7x7[row][0].getCol(0);
-			
-			for (int col = cols-1; col >= 0; col--) {
-				
-				temp = matrix7x7[row][col].shiftLeft(temp);
-				
-			}
-		}
-	}
-	
-	public void shiftRightTimer() {
+	public void startRightShift() {
+		timerOn = true;
 		timer = new Timer();
-		timer.schedule(new ShiftRight(), delay, period);
+		timer.schedule(new ShiftRght(), delay, period);
 	}
 	
-	private void shiftRight() {
-		
-		Array7 temp = null;
-		
-		for (int row = 0; row < rows; row++) {
-			
-			temp = matrix7x7[row][cols-1].getCol(6);
-			
-			for (int col = 0; col < cols; col++) {
-				
-				temp = matrix7x7[row][col].shiftRight(temp);
-				
-			}
-		}
+	public void stopTimer() {
+		System.out.println("STOP");
+		timerOn = false;
+		timer.cancel();
+		timer.purge();
+		timer = null;
 	}
 	
-	public Array7x7[][] getModel(){
-		return matrix7x7;
-	}
+	public Array7x7[] getModel() {
 
-	public void setViewer(Viewer view) {
-		viewer = view;
+		return array;
 	}
 	
-	private void fillMatrixWith0() {
-		
-		Array7x7 empty7x7 = new Array7x7();
-		
-		for (int row = 0; row < 7; row++) {
-			for (int col = 0; col < 7; col++) {
-				empty7x7.setElement(row, col, 0);
-			}
-		}
-		
-		for (int row = 0; row < rows; row++) {
-			for (int col = 0; col < cols; col++) {
-				matrix7x7[row][col] = empty7x7;
-			}
-		}
+	public void setViewer(Viewer v) {
+		viewer = v;
 	}
-	private class ShiftRight extends TimerTask {
-		private int counter = 0;
-		@Override
-		public void run() {
-			if(counter < (7 * cols)) {
-				shiftRight();
-				viewer.updateColorDisplay();
-				counter++;
-			}
+	
+	public void zeroArray7x7(Array7x7[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			
+			arr[i] = new Array7x7();
+			
+			for (int row = 0; row < 7; row++) {
+				for (int col = 0; col < 7; col++) {
+					arr[i].setElement(row, col, 0);
+				}
+			}		
 		}
 	}
 	
 	private class ShiftLeft extends TimerTask {
-		private int counter = 0;
 		@Override
 		public void run() {
-			if(counter < (7 * cols)) {
-				shiftLeft();
-				viewer.updateColorDisplay();
-				counter++;
+			if(timerOn) {
+				shiftL();
+				System.out.println("L");
+			} else {
+				timer.cancel();
+				timer.purge();
+				timer = null;
+			}
+		}		
+	}
+	
+	private class ShiftRght extends TimerTask {
+		@Override
+		public void run() {
+			if(timerOn) {
+				shiftR();
+				System.out.println("R");
+			} else {
+				timer.cancel();
+				timer.purge();
+				timer = null;
 			}
 		}
 	}
+	
 }
