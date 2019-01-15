@@ -61,7 +61,7 @@ public class Viewer extends JFrame {
 	private int[][] toColor(){
 
 		Array7x7 window = controller.getArray();
-		//Random rand = new Random();
+		
 
 		int[][] colorArray = new int[7][7];
 
@@ -111,6 +111,9 @@ public class Viewer extends JFrame {
 
 			if (  btnRand.isSelected() == true ) {
 				updateColordisplay();
+			}
+			if ( btnRand.isSelected() == false) {
+				updateDisplay();
 			}
 
 			if ( btnRand.isSelected() == true && e.getSource() == btnRght) {
