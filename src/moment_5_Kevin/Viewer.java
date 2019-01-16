@@ -20,6 +20,7 @@ public class Viewer extends JFrame {
 	private JButton btnLeft = new JButton("Shift left");
 	private JButton btnRght = new JButton("Shift Right");
 	private JButton btnText = new JButton("Enter Text");
+	private JButton btnStop = new JButton("Stop Scrolling");
 
 	private ColorDisplay display;
 
@@ -47,10 +48,12 @@ public class Viewer extends JFrame {
 		display = new ColorDisplay(rows, cols, backgroundColor, gridColor, gridStroke, sideSize);
 		add(display, BorderLayout.CENTER);
 
-		JPanel southPanel = new JPanel(new GridLayout(1, 3));
+		JPanel southPanel = new JPanel(new GridLayout(2, 3));
 		southPanel.add(btnLeft);
 		southPanel.add(btnText);
 		southPanel.add(btnRght);
+		southPanel.add(new JPanel());
+		southPanel.add(btnStop);
 		add(southPanel, BorderLayout.SOUTH);
 
 		addListeners();
@@ -92,6 +95,7 @@ public class Viewer extends JFrame {
 		btnLeft.addActionListener(listener);
 		btnRght.addActionListener(listener);
 		btnText.addActionListener(listener);
+		btnStop.addActionListener(listener);
 	}
 
 	private class ButtonListener implements ActionListener {
@@ -113,6 +117,9 @@ public class Viewer extends JFrame {
 				controller.shiftRightTimer();
 				timerRunning++;
 
+			}
+			if(e.getSource()==btnStop) {
+				controller.stopTimer();
 			}
 
 			if (e.getSource() == btnText) {
