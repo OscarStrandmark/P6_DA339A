@@ -22,13 +22,14 @@ public class Viewer extends JFrame {
 
 	private Controller controller;
 
+
 	public Viewer(Controller controller) {
 
 		this.controller = controller;
 
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(new Dimension(500,500));
+		setSize(new Dimension(500,550));
 		setLayout(new BorderLayout());
 
 		JPanel southPanel = new JPanel();
@@ -43,19 +44,19 @@ public class Viewer extends JFrame {
 	}
 
 	public void updateDisplay() {
-		
+
 		display.clearDisplay();
 
-		display.setDisplay(toColor());
+		display.setDisplay(toColor()); // Black&White
 
 		display.updateDisplay();
 	}
 
 	public void updateColordisplay() {
-		
+
 		display.clearDisplay();
 
-		display.setDisplay(toRandcolor());
+		display.setDisplay(toRandcolor()); // Random background
 
 		display.updateDisplay();
 	}
@@ -63,7 +64,7 @@ public class Viewer extends JFrame {
 	private int[][] toColor(){
 
 		Array7x7 window = controller.getArray();
-		
+
 		int[][] colorArray = new int[7][7];
 
 		for (int row = 0; row < colorArray.length; row++) {
@@ -82,7 +83,7 @@ public class Viewer extends JFrame {
 
 		Random rand = new Random();
 		Array7x7 window = controller.getArray();
-		
+
 		int[][] colorArray = new int[7][7];
 
 		for (int row = 0; row < colorArray.length; row++) {
@@ -115,7 +116,6 @@ public class Viewer extends JFrame {
 			if ( btnRand.isSelected() == false) {
 				updateDisplay();
 			}
-
 			if ( btnRand.isSelected() == true && e.getSource() == btnRght) {
 				controller.shiftRight();
 				updateColordisplay();
@@ -124,12 +124,10 @@ public class Viewer extends JFrame {
 				controller.shiftLeft();
 				updateColordisplay();
 			}
-
 			if (e.getSource() == btnRght && btnRand.isSelected() == false) {
 				controller.shiftRight();
 				updateDisplay();
 			}
-
 			if (e.getSource() == btnLeft && btnRand.isSelected()==false) {
 				controller.shiftLeft();
 				updateDisplay();
