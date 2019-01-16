@@ -33,7 +33,7 @@ public class Controller {
 
 	public void run() {
 		
-		this.a7x7Array = new Array7x7[toScreen.length() + 15];
+		this.a7x7Array = new Array7x7[toScreen.length() + 10];
 		fillMatrixWith0();
 		
 		char[] inputArr = toScreen.toCharArray();
