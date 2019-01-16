@@ -43,6 +43,7 @@ public class Viewer extends JFrame {
 	}
 
 	public void updateDisplay() {
+		
 		display.clearDisplay();
 
 		display.setDisplay(toColor());
@@ -51,6 +52,7 @@ public class Viewer extends JFrame {
 	}
 
 	public void updateColordisplay() {
+		
 		display.clearDisplay();
 
 		display.setDisplay(toRandcolor());
@@ -62,7 +64,6 @@ public class Viewer extends JFrame {
 
 		Array7x7 window = controller.getArray();
 		
-
 		int[][] colorArray = new int[7][7];
 
 		for (int row = 0; row < colorArray.length; row++) {
@@ -72,7 +73,6 @@ public class Viewer extends JFrame {
 				} else if (window.getElement(row, col) == 0) {
 					colorArray[row][col] = Color.WHITE;
 				}
-
 			}
 		}
 		return colorArray;
@@ -80,9 +80,9 @@ public class Viewer extends JFrame {
 
 	private int[][] toRandcolor(){
 
-		Array7x7 window = controller.getArray();
 		Random rand = new Random();
-
+		Array7x7 window = controller.getArray();
+		
 		int[][] colorArray = new int[7][7];
 
 		for (int row = 0; row < colorArray.length; row++) {

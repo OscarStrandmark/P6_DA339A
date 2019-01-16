@@ -25,12 +25,13 @@ public class Controller {
 	}
 
 	public void setViewer(Viewer view) {
+	
 		String StringLetter = JOptionPane.showInputDialog("Ange en bokstav");
 		char bk = StringLetter.charAt(0);
-		
+				
 		viewer = view;
 		array = Chars.getChar(bk);
 		viewer.updateDisplay();
-
+		
 	}
 }
